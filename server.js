@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const PORT = 3000;
 const HOST = '0.0.0.0';
 
-mongoose.connect('mongodb://192.168.1.23:30000/users', {
+mongoose.connect('mongodb://192.168.1.30:30000/users', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
