@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: pfe-app
-          image: "hasnaoui68/node-app-2.0"
+          image: "dridilotfi/pfe-app"
           env:
             - name: MONGO_URL
-              value: "mongodb://192.168.1.23:30000/users" # Change as needed
+              value: "mongodb://192.168.1.30:30000/users" # Change as needed
           ports:
             - containerPort: 8083 # Change as needed
 ---
