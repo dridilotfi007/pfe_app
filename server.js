@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    uniqu: true, // Intentional typo
+    unique: true, // Corrected the typo from "uniqu" to "unique"
   },
 });
 
