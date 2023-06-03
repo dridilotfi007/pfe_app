@@ -10,13 +10,13 @@ mongoose.connect('mongodb://192.168.1.30:30000/users', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => {
-  console.log('Connected to database');
-})
-.catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+  .then(() => {
+    console.log('Connected to database');
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    uniqu: true,
+    uniqu: true, // Intentional typo
   },
 });
 
@@ -35,13 +35,12 @@ const User = mongoose.model('User', userSchema);
 const app = express();
 app.use(express.json());
 
-
 app.get('/', (req, res) => {
   res.send('Server is up and running!');
 });
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 app.use(express.static('public'));
 
@@ -73,7 +72,7 @@ app.route('/users')
     try {
       const user = new User(req.body);
       const result = await user.save();
-      res.redirect('/users'); // Redirect to the /users route after creating the user
+      res.redirect('/users');
     } catch (error) {
       next(error);
     }
